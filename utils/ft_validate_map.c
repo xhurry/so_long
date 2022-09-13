@@ -6,11 +6,11 @@
 /*   By: alexamar <xandemvieira@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 20:21:47 by alexamar          #+#    #+#             */
-/*   Updated: 2022/09/12 16:38:15 by alexamar         ###   ########.fr       */
+/*   Updated: 2022/09/13 05:47:15 by alexamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 static int	ft_is_rectangular(t_program *program)
 {
@@ -20,7 +20,6 @@ static int	ft_is_rectangular(t_program *program)
 	y = 0;
 	while (program->map[y])
 	{
-		ft_printf("\nlen y = %d, len 0 = %d", ft_strlen(program->map[y]), ft_strlen(program->map[0]));
 		if (ft_strlen(program->map[y]) != ft_strlen(program->map[0]))
 			return (1);
 		y++;
@@ -90,8 +89,7 @@ static int	ft_is_pec(t_program *program)
 	if (program->n_player != 1 || program->n_exit == 0
 		|| program->n_collect == 0)
 		return (1);
-	else
-		return (0);
+	return (0);
 }
 
 int	ft_validate_map(t_program *program)
@@ -107,6 +105,6 @@ int	ft_validate_map(t_program *program)
 				return (0);
 		}
 	}
-	ft_printf("Error\nThe map is not formatted correctly!\n");
+	ft_printf("Error!\nInvalid map!\n");
 	return (1);
 }

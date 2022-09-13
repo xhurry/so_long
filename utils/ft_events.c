@@ -6,11 +6,11 @@
 /*   By: alexamar <xandemvieira@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 22:29:51 by alexamar          #+#    #+#             */
-/*   Updated: 2022/09/12 14:41:54 by alexamar         ###   ########.fr       */
+/*   Updated: 2022/09/13 05:47:00 by alexamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	ft_move_up(t_program *program)
 {
@@ -138,5 +138,5 @@ int	ft_moves(int key, t_program *program)
 		program->player.x += 1;
 		ft_move_right(program);
 	}
-	return(0);
+	return (0);
 }

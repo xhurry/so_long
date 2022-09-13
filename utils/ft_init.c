@@ -6,31 +6,11 @@
 /*   By: alexamar <xandemvieira@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 23:26:37 by alexamar          #+#    #+#             */
-/*   Updated: 2022/09/12 23:59:15 by alexamar         ###   ########.fr       */
+/*   Updated: 2022/09/13 05:47:06 by alexamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-
-int	ft_exit(t_program *program, int status)
-{
-	ft_free_image(program);
-	mlx_destroy_window(program->mlx, program->window);
-	mlx_destroy_display(program->mlx);
-	free(program->mlx);
-	exit(status);
-	return (0);
-}
-
-void	ft_win(t_program *program)
-{
-	if (program->map[program->player.y][program->player.x] == 'E' \
-		&& program->n_collect == 0)
-	{
-		ft_printf("\nCongratulations, you won!\n");
-		ft_exit(program, 0);
-	}
-}
+#include "../so_long.h"
 
 void	ft_free_image(t_program *program)
 {
@@ -62,24 +42,15 @@ void	ft_draw(t_program *program)
 		while (program->map[y][x] != '\0')
 		{
 			if (program->map[y][x] == '1')
-				mlx_put_image_to_window(program->mlx, program->window, \
-					program->wall.img_ptr, x * XPM, y * XPM);
+				ft_put_wall(program, y, x);
 			else if (program->map[y][x] == '0')
-				mlx_put_image_to_window(program->mlx, program->window, \
-					program->floor.img_ptr, x * XPM, y * XPM);
+				ft_put_floor(program, y, x);
 			else if (program->map[y][x] == 'E')
-				mlx_put_image_to_window(program->mlx, program->window, \
-					program->exit.img_ptr, x * XPM, y * XPM);
-			else if (program->map[y][x] == 'P')
-			{
-				program->player.x = x;
-				program->player.y = y;
-				mlx_put_image_to_window(program->mlx, program->window, \
-					program->player.img_ptr, x * XPM, y * XPM);
-			}
+				ft_put_exit(program, y, x);
 			else if (program->map[y][x] == 'C')
-				mlx_put_image_to_window(program->mlx, program->window, \
-					program->collect.img_ptr, x * XPM, y * XPM);
+				ft_put_collect(program, y, x);
+			else if (program->map[y][x] == 'P')
+				ft_put_player(program, y, x);
 			x++;
 		}
 		y++;
@@ -88,6 +59,9 @@ void	ft_draw(t_program *program)
 
 void	ft_init(t_program	*program)
 {
+	program->mlx = mlx_init();
+	program->window = mlx_new_window(program->mlx, (program->matrix.x) * XPM,
+			(program->matrix.y) * XPM, "so_long");
 	program->n_moves = 0;
 	program->wall.img_ptr = mlx_xpm_file_to_image(program->mlx,
 			"./images/wall.xpm", &program->wall.size_x, &program->wall.size_y);

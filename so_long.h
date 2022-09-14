@@ -6,7 +6,7 @@
 /*   By: alexamar <xandemvieira@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 04:03:09 by alexamar          #+#    #+#             */
-/*   Updated: 2022/09/13 05:17:16 by alexamar         ###   ########.fr       */
+/*   Updated: 2022/09/13 21:29:52 by alexamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@
 # define A		97
 # define S		115
 # define D		100
+# define UP		65362
+# define DOWN	65364
+# define LEFT	65361
+# define RIGHT	65363
 
 typedef struct s_image {
 	int		size_x;
@@ -72,7 +76,7 @@ int		ft_moves(int key, t_program *program);
 int		ft_exit(t_program *program, int status);
 int		ft_key_pressed(int key, t_program *program);
 int		ft_move_window(t_program *program);
-void	ft_init(t_program	*program);
+void	ft_init(t_program *program);
 void	ft_draw(t_program *program);
 void	ft_game(t_program *program);
 void	ft_free_image(t_program *program);

@@ -6,7 +6,7 @@
 /*   By: alexamar <xandemvieira@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 21:11:31 by alexamar          #+#    #+#             */
-/*   Updated: 2022/09/13 04:03:47 by alexamar         ###   ########.fr       */
+/*   Updated: 2022/09/13 22:05:43 by alexamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	ft_check_arg(int argc, char *argv[])
 {
 	if (argc == 2)
 	{
-		if (ft_strlen(ft_strrchr(argv[1], '.')) == 4)
+		if (ft_strrchr(argv[1], '.')
+			&& ft_strlen(ft_strrchr(argv[1], '.')) == 4)
 		{
 			if (ft_strncmp(ft_strrchr(argv[1], '.'), ".ber", 4) != 0)
 			{

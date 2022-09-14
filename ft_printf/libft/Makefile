@@ -6,7 +6,7 @@
 #    By: alexamar <xandemvieira@gmail.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 14:05:19 by alexamar          #+#    #+#              #
-#    Updated: 2022/09/12 17:48:16 by alexamar         ###   ########.fr        #
+#    Updated: 2022/09/14 01:47:56 by alexamar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRCS		=		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c \
 
 OBJS		=		$(SRCS:.c=.o)
 
-CC			=		clang
+CC			=		gcc
 
 CFLAGS		=		-Wall -Wextra -Werror
 

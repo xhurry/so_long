@@ -6,7 +6,7 @@
 /*   By: alexamar <xandemvieira@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 22:29:51 by alexamar          #+#    #+#             */
-/*   Updated: 2022/09/13 05:47:00 by alexamar         ###   ########.fr       */
+/*   Updated: 2022/09/13 21:27:45 by alexamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,22 +118,22 @@ void	ft_move_right(t_program *program)
 
 int	ft_moves(int key, t_program *program)
 {
-	if (key == W)
+	if (key == W || key == UP)
 	{
 		program->player.y -= 1;
 		ft_move_up(program);
 	}
-	else if (key == A)
+	else if (key == A || key == LEFT)
 	{
 		program->player.x -= 1;
 		ft_move_left(program);
 	}
-	else if (key == S)
+	else if (key == S || key == DOWN)
 	{
 		program->player.y += 1;
 		ft_move_down(program);
 	}
-	else if (key == D)
+	else if (key == D || key == RIGHT)
 	{
 		program->player.x += 1;
 		ft_move_right(program);

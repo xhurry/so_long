@@ -6,7 +6,7 @@
 /*   By: alexamar <xandemvieira@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:47:59 by alexamar          #+#    #+#             */
-/*   Updated: 2022/09/13 05:47:11 by alexamar         ###   ########.fr       */
+/*   Updated: 2022/09/13 22:25:46 by alexamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ char	**ft_read_map(char *path)
 {
 	int		fd;
 	char	*line;
-	char	*temp_map;
 	char	*map;
 	char	**map_final;
 
@@ -51,14 +50,13 @@ char	**ft_read_map(char *path)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		temp_map = map;
-		map = ft_strjoin(temp_map, line);
+		map = ft_newstrjoin(map, line);
 		free(line);
-		free(temp_map);
 	}
 	if (!ft_empty_map(map))
 		return (NULL);
 	map_final = (ft_split(map, '\n'));
 	free(map);
+	close (fd);
 	return (map_final);
 }
